@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
         Schedule.insert(Schedule.end(), temp);
     }
     std::sort(Schedule.begin(),Schedule.end());
+
     for(auto a: Schedule){
         cout << a << endl;
     }

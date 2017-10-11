@@ -61,30 +61,21 @@ tm Concert::setDate(tm date) {
 }
 
 bool Concert::operator<(const Concert &other) const {
-    if (this->getDate().tm_year < other.getDate().tm_year) {
+    tm A = this->getDate();
+    tm B = other.getDate();
+    int time = difftime(mktime(&A),mktime(&B));
+    if(time < 0){
         return true;
-    }
-
-    if (this->getDate().tm_yday < other.getDate().tm_yday) {
-        return true;
-    }
-
-    if (this->getDate().tm_hour < other.getDate().tm_hour) {
-        return true;
-    }
-
-    /*if (this->getDate().tm_min < other.getDate().tm_min) {
-        return true;
-    }*/
-
-    /*if (this->getDate().tm_sec < other.getDate().tm_sec) {
-        return true;
-    }else if (this->getDate().tm_sec == other.getDate().tm_sec) {
-        if (this->getDesire() < other.getDesire()) {
+    }else if(time == 0){
+        if(this->getDesire() < other.getDesire()){
             return true;
         }
-    }*/
-    return false;
+    }else{
+        return false;
+    }
+
+
+
 }
 
 ostream &operator<<(ostream &output, const Concert &C) {
