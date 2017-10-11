@@ -19,10 +19,10 @@ public:
     Concert(string name, vector<string> list, int desire, tm date);
 
     //Accessors
-    string getName();
+    string getName()const;
     vector<string>getList();
-    int getDesire();
-    tm getDate();
+    int getDesire()const;
+    tm getDate()const;
 
     //Setters
     string setName(string name);
@@ -33,6 +33,7 @@ public:
     //Overloads
     //Acquired from tutoriaspoint
     bool operator<(const Concert &other) const;
+
 private:
     // Who will be performing?
     string concertName;
@@ -50,5 +51,5 @@ private:
     // See http://en.cppreference.com/w/cpp/chrono/c/tm
     tm date;
 };
-
+ostream &operator<<(ostream &output, const Concert &C);
 #endif //INCONCERT_CONCERT_H
