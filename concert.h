@@ -10,7 +10,12 @@
 #include <ostream>
 
 using namespace std;
-
+/*****************************************************************
+ * Data holder for important information about Concerts held at
+ * a venue
+ *
+ * @author Jeremiah Logan
+ ****************************************************************/
 class Concert {
 public:
     //Constructor with no parameters
@@ -20,18 +25,14 @@ public:
 
     //Accessors
     string getName()const;
-    vector<string>getList();
     int getDesire()const;
     tm getDate()const;
 
     //Setters
-    string setName(string name);
-    int setDesire(int desire);
-    vector<string> setFriends(vector<string>friends);
     tm setDate(tm date);
 
-    //Overloads
-    //Acquired from tutoriaspoint
+    //less than overload
+    //Code found on Tutorialspoint.com
     bool operator<(const Concert &other) const;
 
 private:
@@ -51,5 +52,8 @@ private:
     // See http://en.cppreference.com/w/cpp/chrono/c/tm
     tm date;
 };
+
+//<< overload
+//Code found on Tutorialspoint.com
 ostream &operator<<(ostream &output, const Concert &C);
 #endif //INCONCERT_CONCERT_H
